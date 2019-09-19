@@ -28,7 +28,9 @@
 */
 
 // Code Here 
-
+function first(array, cb){
+  cb(array[0]);
+}
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
@@ -48,7 +50,9 @@ first(names, function(firstName){
 */
 
 //Code Here
-
+function last(array, cb){
+  cb(array[array.length-1]);
+}
 // Do not edit the code below.
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
@@ -65,7 +69,10 @@ last(names, function(lastName){
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
 
-//Code Here
+function multiply(num1, num2, cb){
+  let numTotal = (num1 * num2);
+  cb(numTotal);
+}
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -84,7 +91,15 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-//Code Here 
+function contains(array, name, cb){
+  for(var i = 0; i < array.length; i++){
+    if(array[i] === name){
+      cb(true);
+    } else {
+      cb(false);
+    }
+  }
+}
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -106,7 +121,17 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
-
+function uniq(array, cb){
+   for(let i = array.length - 1; i >= 0; i--){
+    
+    for(let k = i-1; k >= 0; k--){
+      if(array[k] === array[i]){
+        array.splice(i, 1);
+        break;
+      }
+    }
+  } cb(array);
+}
 // Do not edit the code below.
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
@@ -121,7 +146,12 @@ uniq(names, function(uniqArr){
   Write a function called each that takes in an array of names and a callback function. 
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
-
+function each(array,cb){
+  for(let i = 0; i < array.length; i++){
+    cb(array[i])
+  }
+  
+}
 //Code Here 
 
 // Do not edit the code below.
